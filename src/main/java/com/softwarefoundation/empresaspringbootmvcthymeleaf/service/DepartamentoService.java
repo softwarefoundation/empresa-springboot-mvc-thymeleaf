@@ -6,6 +6,7 @@ import com.softwarefoundation.empresaspringbootmvcthymeleaf.repository.Departame
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,4 +32,7 @@ public class DepartamentoService {
         departamentoRepository.deleteById(id);
     }
 
+    public List<Departamento> listar(){
+        return departamentoRepository.findAll();
+    }
 }
