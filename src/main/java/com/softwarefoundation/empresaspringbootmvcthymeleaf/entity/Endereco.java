@@ -1,10 +1,15 @@
 package com.softwarefoundation.empresaspringbootmvcthymeleaf.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "TB03_ENDERECO")
-public class Endereco extends AbstractEntity<Long> {
+public class Endereco {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "LOGRADOURO")
     private String logradouro;
@@ -27,6 +32,14 @@ public class Endereco extends AbstractEntity<Long> {
 
     @Column(name = "COMPLEMENTO")
     private String complemento;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getLogradouro() {
         return logradouro;
@@ -84,5 +97,17 @@ public class Endereco extends AbstractEntity<Long> {
         this.complemento = complemento;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Endereco endereco = (Endereco) o;
+        return Objects.equals(id, endereco.id);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
+    }
 }
