@@ -1,4 +1,4 @@
-package com.softwarefoundation.empresaspringbootmvcthymeleaf.controller;
+package com.softwarefoundation.empresaspringbootmvcthymeleaf.controller.converters;
 
 import com.softwarefoundation.empresaspringbootmvcthymeleaf.entity.Departamento;
 import com.softwarefoundation.empresaspringbootmvcthymeleaf.service.DepartamentoService;
