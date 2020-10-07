@@ -1,5 +1,8 @@
 package com.softwarefoundation.empresaspringbootmvcthymeleaf.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,12 +20,15 @@ public class Funcionario {
     @Column(name = "NOME", nullable = false, unique = true)
     private String nome;
 
+    @NumberFormat(style = NumberFormat.Style.CURRENCY, pattern = "#,##0.00")
     @Column(nullable = false,columnDefinition = "DECIMAL(7.2) DEFAULT 0.00")
     private BigDecimal salario;
 
+    @DateTimeFormat(iso =  DateTimeFormat.ISO.DATE)
     @Column(name = "DATA_ENTRADA",nullable = false,columnDefinition = "DATE")
     private LocalDate dataEntrada;
 
+    @DateTimeFormat(iso =  DateTimeFormat.ISO.DATE)
     @Column(name = "DATA_SAIDA",columnDefinition = "DATE")
     private LocalDate dataSaida;
 
