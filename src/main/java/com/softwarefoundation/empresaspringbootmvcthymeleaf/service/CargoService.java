@@ -36,4 +36,13 @@ public class CargoService {
     public List<Cargo> listar(){
         return cargoRepository.findAll();
     }
+
+    public boolean isPossivelExcluir(Long id) {
+        try{
+           return pesquisarPorId(id).getFuncionarios().isEmpty();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

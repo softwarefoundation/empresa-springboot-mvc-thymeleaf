@@ -38,7 +38,7 @@ public class CargoController {
     @PostMapping(path = "/editar")
     public String editar(Cargo cargo, RedirectAttributes attr){
         cargoService.editar(cargo);
-        Mensagem.Sucesso.registroSalvoComsucesso(attr);
+        Mensagem.Sucesso.salvar(attr);
         return "redirect:/cargos/cadastrar";
     }
 
@@ -51,7 +51,7 @@ public class CargoController {
     @PostMapping(path = "/salvar")
     public String salvar(Cargo cargo, RedirectAttributes attr){
         cargoService.salvar(cargo);
-        Mensagem.Sucesso.registroSalvoComsucesso(attr);
+        Mensagem.Sucesso.salvar(attr);
         return "redirect:/cargos/cadastrar";
     }
 
@@ -60,4 +60,14 @@ public class CargoController {
         return departamentoService.listar();
     }
 
+    @GetMapping("/excluir/{id}")
+    public String excluir(@PathVariable("id") Long id, ModelMap model){
+        if(cargoService.isPossivelExcluir(id)){
+            cargoService.excluir(id);
+            Mensagem.Sucesso.excluir(model);
+        }else{
+            Mensagem.Erro.excluir(model);
+        }
+        return  listar(model);
+    }
 }

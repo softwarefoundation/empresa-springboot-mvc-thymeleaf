@@ -47,6 +47,14 @@ public class Cargo {
         this.departamento = departamento;
     }
 
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
+
+    public void setFuncionarios(List<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

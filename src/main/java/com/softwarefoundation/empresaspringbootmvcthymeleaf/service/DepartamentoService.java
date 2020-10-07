@@ -38,6 +38,7 @@ public class DepartamentoService {
     }
 
     /**
+     *
      * @param id
      * @return
      */
@@ -45,7 +46,8 @@ public class DepartamentoService {
         try {
             return pesquisarPorId(id).getCargos().isEmpty();
         } catch (Exception e) {
-            return false;
+            e.printStackTrace();
         }
+        return false;
     }
 }
