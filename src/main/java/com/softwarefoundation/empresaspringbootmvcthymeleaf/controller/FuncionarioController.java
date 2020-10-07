@@ -33,7 +33,7 @@ public class FuncionarioController {
 
     @GetMapping("/listar")
     public String listar(ModelMap model) {
-        model.addAttribute("funcionarios", cargoService.listar());
+        model.addAttribute("funcionarios", funcionarioService.listar());
         return "funcionario/lista";
     }
 

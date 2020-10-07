@@ -5,6 +5,7 @@ import com.softwarefoundation.empresaspringbootmvcthymeleaf.repository.Funcionar
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,6 +29,10 @@ public class FuncionarioService {
 
     public void excluir(Long id){
         funcionarioRepository.deleteById(id);
+    }
+
+    public List<Funcionario> listar(){
+        return funcionarioRepository.findAll();
     }
 
 }
