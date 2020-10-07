@@ -35,4 +35,12 @@ public enum UF {
         this.sigla = sigla;
         this.descricao = descricao;
     }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
 }
