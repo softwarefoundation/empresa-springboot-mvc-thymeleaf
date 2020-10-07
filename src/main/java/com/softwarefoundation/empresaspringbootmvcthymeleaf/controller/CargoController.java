@@ -7,6 +7,7 @@ import com.softwarefoundation.empresaspringbootmvcthymeleaf.service.Departamento
 import com.softwarefoundation.empresaspringbootmvcthymeleaf.util.Mensagem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +32,8 @@ public class CargoController {
     }
 
     @GetMapping(path = "/listar")
-    public String listar(){
+    public String listar(ModelMap model){
+        model.addAttribute("cargos",cargoService.listar());
         return "/cargo/lista";
     }
 

@@ -1,11 +1,13 @@
 package com.softwarefoundation.empresaspringbootmvcthymeleaf.service;
 
 import com.softwarefoundation.empresaspringbootmvcthymeleaf.entity.Cargo;
+import com.softwarefoundation.empresaspringbootmvcthymeleaf.entity.Departamento;
 import com.softwarefoundation.empresaspringbootmvcthymeleaf.entity.Funcionario;
 import com.softwarefoundation.empresaspringbootmvcthymeleaf.repository.CargoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,4 +33,7 @@ public class CargoService {
         cargoRepository.deleteById(id);
     }
 
+    public List<Cargo> listar(){
+        return cargoRepository.findAll();
+    }
 }
